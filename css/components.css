@@ -1,7 +1,7 @@
 /* 버튼 및 카드 공통 */
 .btn {
     display: inline-block; margin-top: 25px; padding: 12px 30px;
-    background: #fff; color: #764ba2; border-radius: 30px;
+    background: var(--card-bg); color: var(--secondary-color); border-radius: 30px;
     text-decoration: none; font-weight: bold;
 }
 .about-content img {
@@ -9,42 +9,43 @@
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    background: #ddd;
+    background: var(--card-border);
     display: block; /* 요소를 블록 형태로 강제 표시 */
     margin: 0 auto;
 }
 .skill-card {
-    background: #667eea; color: #fff; padding: 25px;
+    background: var(--primary-color); color: var(--card-foreground, #fff); padding: 25px;
     border-radius: 10px; text-align: center;
 }
 .project-card {
-    border: 1px solid #eee; border-radius: 10px; overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s;
+    border: 1px solid var(--card-border); border-radius: 10px; overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow-color); transition: transform 0.3s;
 }
 .project-card:hover { transform: translateY(-5px); }
-.project-card .thumb { height: 180px; background: #ddd; }
+.project-card .thumb { height: 180px; background: var(--card-border); }
 .project-card .info { padding: 20px; }
 .project-card .info h3 { margin-bottom: 8px; }
 .project-card .info .lang {
-    display: inline-block; font-size: 0.8rem; color: #667eea;
+    display: inline-block; font-size: 0.8rem; color: var(--primary-color);
     margin-top: 10px; font-weight: bold;
 }
-.project-card .info .stars { float: right; color: #f39c12; font-size: 0.85rem; }
+.project-card .info .stars { float: right; color: var(--accent-color, #f39c12); font-size: 0.85rem; }
 .project-card a { text-decoration: none; color: inherit; }
 
 /* 폼 요소 */
 label { font-weight: bold; font-size: 0.9rem; margin-top: 5px; }
 input, textarea {
-    padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;
+    padding: 12px; border: 1px solid var(--input-border); border-radius: 5px; font-size: 1rem;
+    background: var(--input-bg); color: var(--text-color);
 }
 button[type="submit"] {
-    padding: 12px; background: #667eea; color: #fff;
+    padding: 12px; background: var(--primary-color); color: var(--card-foreground, #fff);
     border: none; border-radius: 5px; cursor: pointer; font-size: 1rem;
     margin-top: 10px;
 }
-.error-msg { color: #e74c3c; font-size: 0.85rem; display: none; }
-.success-msg { color: #27ae60; text-align: center; display: none; margin-top: 10px; }
-input.invalid, textarea.invalid { border-color: #e74c3c; }
+.error-msg { color: var(--error-color, #e74c3c); font-size: 0.85rem; display: none; }
+.success-msg { color: var(--success-color, #27ae60); text-align: center; display: none; margin-top: 10px; }
+input.invalid, textarea.invalid { border-color: var(--error-color, #e74c3c); }
 
 /* 토글 및 햄버거 버튼 */
 .theme-toggle {
@@ -56,9 +57,9 @@ input.invalid, textarea.invalid { border-color: #e74c3c; }
     background: none; border: none; cursor: pointer; padding: 0; width: auto;
 }
 .hamburger span {
-    width: 25px; height: 3px; background: #333; transition: 0.3s;
+    width: 25px; height: 3px; background: var(--text-color); transition: 0.3s;
 }
-body.dark .hamburger span { background: #eee; }
+body.dark .hamburger span { background: var(--card-bg); }
 
 /* 스크롤 애니메이션 & 스피너 */
 .reveal {
@@ -69,29 +70,23 @@ body.dark .hamburger span { background: #eee; }
 
 .spinner {
     width: 40px; height: 40px; margin: 40px auto;
-    border: 4px solid #ddd; border-top-color: #667eea;
+    border: 4px solid var(--card-border); border-top-color: var(--primary-color);
     border-radius: 50%; animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-.status-msg { text-align: center; padding: 40px; color: #888; }
-.status-msg.error { color: #e74c3c; }
+.status-msg { text-align: center; padding: 40px; color: var(--text-muted, #888); }
+.status-msg.error { color: var(--error-color, #e74c3c); }
 
 /* 맨 위로 이동 버튼 */
 .back-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px; border: none; border-radius: 50%;
-    background: #667eea; color: white; font-size: 1.5rem;
-    cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: var(--primary-color); color: var(--card-foreground, #fff); font-size: 1.5rem;
+    cursor: pointer; box-shadow: 0 4px 12px var(--shadow-color);
     opacity: 0; visibility: hidden; transform: translateY(20px);
     transition: all 0.3s ease; z-index: 999;
 }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-.back-to-top:hover { background: #5568d3; transform: translateY(-3px); }
+.back-to-top:hover { background: color-mix(in srgb, var(--primary-color) 80%, black); transform: translateY(-3px); }
 
-/* 다크 모드 오버라이드 스타일 */
-body.dark { background: #1a1a1a; color: #eee; }
-body.dark nav { background: #2a2a2a; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-body.dark nav a, body.dark .logo { color: #eee; }
-body.dark .about, body.dark .contact { background: #222; }
-body.dark .project-card { border-color: #444; background: #2a2a2a; }
-body.dark input, body.dark textarea { background: #333; color: #eee; border-color: #555; }
+/* 기존에 하드코딩된 다크모드 오버라이드는 변수로 대체되었으므로 제거합니다. */

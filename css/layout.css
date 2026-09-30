@@ -2,23 +2,23 @@
 nav {
     position: sticky; 
     top: 0; 
-    background: #fff; 
+    background: var(--nav-bg); 
     z-index: 100;
     display: flex; 
     justify-content: space-between; 
     align-items: center;
     padding: 15px 30px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 nav .logo { font-weight: bold; font-size: 1.3rem; }
 nav ul { display: flex; list-style: none; gap: 25px; }
-nav a { text-decoration: none; color: #333; }
+nav a { text-decoration: none; color: var(--text-color); }
 
 /* Hero 섹션 */
 /* Hero 섹션 수정 */
 .hero {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff; 
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--hero-text, #fff); 
     text-align: center; 
     min-height: 90vh;
     display: flex; 
@@ -35,7 +35,7 @@ nav a { text-decoration: none; color: #333; }
 .hero p { font-size: 1.2rem; }
 
 /* About 섹션 */
-.about { background: #f9f9f9; }
+.about { background: var(--section-bg); }
 .about-content {
     display: flex;
     flex-direction: column;
@@ -57,9 +57,9 @@ nav a { text-decoration: none; color: #333; }
 }
 
 /* Contact & Footer */
-.contact { background: #f9f9f9; }
+.contact { background: var(--section-bg); }
 form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-footer { background: #222; color: #fff; text-align: center; padding: 25px; }
+footer { background: var(--nav-bg); color: var(--card-foreground, #fff); text-align: center; padding: 25px; }
 
 /* 반응형 미디어쿼리 (모바일 퍼스트 및 확장) */
 @media (min-width: 768px) {
@@ -86,11 +86,11 @@ footer { background: #222; color: #fff; text-align: center; padding: 25px; }
         left: 0; 
         right: 0;
         flex-direction: column; 
-        background: #fff; 
+        background: var(--nav-bg); 
         padding: 20px;
         gap: 15px; 
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 10px var(--shadow-color);
     }
-    body.dark nav ul { background: #2a2a2a; }
+    body.dark nav ul { background: var(--nav-bg); }
     nav ul.open { display: flex !important; }
 }
