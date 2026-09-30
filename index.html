@@ -216,100 +216,127 @@
 </head>
 <body>
     <!-- 네비게이션 -->
-    <!-- =============== 두 번째 커밋 =============== -->
-    <nav>
-        <div class="logo">Portfolio</div>
-        <ul id="navMenu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div style="display:flex; gap:15px; align-items:center;">
-            <!-- 다크모드 토글 버튼 -->
-            <button class="theme-toggle" id="themeToggle">🌙</button>
-            <!-- 햄버거 버튼 -->
-            <button class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-        <h1>안녕하세요, 임대현입니다</h1>
-        <p>데이터베이스 엔지니어 · 내용 추가입력</p>
-        <a href="#contact" class="btn">연락하기</a>
-        </div>
-    </section>
-
-    <!-- About -->
-    <!-- =============== 두 번째 커밋 =============== -->
-    <section class="about reveal" id="about">
-        <div class="container">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <img src="https://via.placeholder.com/250" alt="프로필">
-            <div class="about-text">
-            <p>코디세이 AI 올인원 과정 2기 수강생입니다. 나의 소개를 입력.</p>
+    <!-- ============= 평가 후 추가 ============== -->
+    <header>
+        <!-- =============== 두 번째 커밋 =============== -->
+        <nav>
+            <div class="logo">Portfolio</div>
+            <ul id="navMenu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex; gap:15px; align-items:center;">
+                <!-- 다크모드 토글 버튼 -->
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <!-- 햄버거 버튼 -->
+                <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+                </button>
             </div>
-        </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- Skills -->
-    <section id="skills">
-        <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">ORACLE SQL</div>
-            <div class="skill-card">HTML</div>
-            <div class="skill-card">CSS</div>
-            <div class="skill-card">JavaScript</div>
-        </div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+            <h1>안녕하세요, 임대현입니다</h1>
+            <p>데이터베이스 엔지니어 · 내용 추가입력</p>
+            <a href="#contact" class="btn">연락하기</a>
+            </div>
+        </section>
 
-    <!-- Projects -->
-    <!-- =============== 네 번째 커밋 =============== -->
-    <section id="projects" class="reveal">
-        <div class="container">
-            <h2>Projects</h2>
+        <!-- About -->
+        <!-- =============== 두 번째 커밋 =============== -->
+        <section class="about reveal" id="about">
+            <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="https://via.placeholder.com/250" alt="프로필">
+                <div class="about-text">
+                <p>코디세이 AI 올인원 과정 2기 수강생입니다. 나의 소개를 입력.</p>
+                </div>
+            </div>
+            </div>
+        </section>
 
-            <!-- 로딩/에러/빈 상태를 표시할 영역 -->
-            <div id="statusArea"></div>
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">ORACLE SQL</div>
+                <div class="skill-card">HTML</div>
+                <div class="skill-card">CSS</div>
+                <div class="skill-card">JavaScript</div>
+            </div>
+            </div>
+        </section>
 
-            <!-- 저장소 카드가 여기에 동적으로 채워집니다 -->
-            <div class="projects-grid" id="projectsGrid"></div>
-        </div>
-    </section>
+        <!-- Projects -->
+        <!-- =============== 네 번째 커밋 =============== -->
+        <section id="projects" class="reveal">
+            <div class="container">
+                <h2>Projects</h2>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-        <h2>Contact</h2>
-            <!-- =============== 두 번째 커밋 =============== -->
-            <form id="contactForm" novalidate>
-                <input type="text" id="name" placeholder="이름">
-                <span class="error-msg" id="nameError">이름을 입력해주세요.</span>
+                <!-- 로딩/에러/빈 상태를 표시할 영역 -->
+                <div id="statusArea"></div>
 
-                <input type="email" id="email" placeholder="이메일">
-                <span class="error-msg" id="emailError">올바른 이메일을 입력해주세요.</span>
+                <!-- 저장소 카드가 여기에 동적으로 채워집니다 -->
+                <div class="projects-grid" id="projectsGrid"></div>
+            </div>
+        </section>
 
-                <textarea rows="5" id="message" placeholder="메시지"></textarea>
-                <span class="error-msg" id="messageError">메시지를 입력해주세요.</span>
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="container">
+            <h2>Contact</h2>
+                <!-- =============== 두 번째 커밋 =============== -->
+                <form id="contactForm">
 
-                <button type="submit">보내기</button>
-                <p class="success-msg" id="successMsg">✅ 메시지가 전송되었습니다!</p>
-            </form>
-        </div>
-    </section>
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요">
+
+                <label for="message">메시지</label>
+                <textarea id="message" name="message" placeholder="메시지를 입력하세요"></textarea>
+
+                <button type="submit">전송</button>
+
+                </form>
+                <!--
+                <form id="contactForm" novalidate>
+                    <input type="text" id="name" placeholder="이름">
+                    <span class="error-msg" id="nameError">이름을 입력해주세요.</span>
+
+                    <input type="email" id="email" placeholder="이메일">
+                    <span class="error-msg" id="emailError">올바른 이메일을 입력해주세요.</span>
+
+                    <textarea rows="5" id="message" placeholder="메시지"></textarea>
+                    <span class="error-msg" id="messageError">메시지를 입력해주세요.</span>
+
+                    <button type="submit">보내기</button>
+                    <p class="success-msg" id="successMsg">✅ 메시지가 전송되었습니다!</p>
+                </form>
+                -->
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <p>© 2026 임대현. All rights reserved.</p>
     </footer>
+
+    <!-- 평가 후 추가 -->
+    <!-- 맨 위로 이동 버튼 -->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로 이동">
+    ↑
+    </button>
 
     <!-- =============== 두 번째 커밋 =============== -->
     <script>
@@ -486,10 +513,5 @@
         });
     </script>
 
-    <!-- 평가 후 추가 -->
-    <!-- 맨 위로 이동 버튼 -->
-    <button id="backToTop" class="back-to-top" aria-label="맨 위로 이동">
-    ↑
-    </button>
 </body>
 </html>
