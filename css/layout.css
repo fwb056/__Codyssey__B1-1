@@ -1,0 +1,89 @@
+/* 네비게이션 */
+nav {
+    position: sticky; 
+    top: 0; 
+    background: #fff; 
+    z-index: 100;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 30px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+nav .logo { font-weight: bold; font-size: 1.3rem; }
+nav ul { display: flex; list-style: none; gap: 25px; }
+nav a { text-decoration: none; color: #333; }
+
+/* Hero 섹션 */
+.hero {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff; 
+    text-align: center; 
+    min-height: 90vh;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+.hero h1 { font-size: 2rem; margin-bottom: 15px; }
+.hero p { font-size: 1.2rem; }
+
+/* About 섹션 */
+.about { background: #f9f9f9; }
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+.about-text { flex: 1; min-width: 300px; }
+
+/* Skills & Projects Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Contact & Footer */
+.contact { background: #f9f9f9; }
+form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+footer { background: #222; color: #fff; text-align: center; padding: 25px; }
+
+/* 반응형 미디어쿼리 (모바일 퍼스트 및 확장) */
+@media (min-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    section { padding: 80px 20px; }
+}
+
+@media (min-width: 1024px) {
+    .container { max-width: 1200px; }
+    .skills-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: flex !important; }
+    nav ul {
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        right: 0;
+        flex-direction: column; 
+        background: #fff; 
+        padding: 20px;
+        gap: 15px; 
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    body.dark nav ul { background: #2a2a2a; }
+    nav ul.open { display: flex !important; }
+}
