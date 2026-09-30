@@ -5,8 +5,13 @@
     text-decoration: none; font-weight: bold;
 }
 .about-content img {
-    width: 250px; height: 250px; border-radius: 50%;
-    object-fit: cover; background: #ddd; margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ddd;
+    display: block; /* 요소를 블록 형태로 강제 표시 */
+    margin: 0 auto;
 }
 .skill-card {
     background: #667eea; color: #fff; padding: 25px;

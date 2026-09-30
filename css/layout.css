@@ -15,6 +15,7 @@ nav ul { display: flex; list-style: none; gap: 25px; }
 nav a { text-decoration: none; color: #333; }
 
 /* Hero 섹션 */
+/* Hero 섹션 수정 */
 .hero {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff; 
@@ -23,6 +24,12 @@ nav a { text-decoration: none; color: #333; }
     display: flex; 
     flex-direction: column; 
     justify-content: center;
+    align-items: center; /* 🔑 이 줄을 추가하여 가로 중앙 정렬을 맞춥니다 */
+}
+
+/* 추가로 container가 좌우를 꽉 채우지 못할 때를 대비한 정렬 */
+.hero .container {
+    width: 100%;
 }
 .hero h1 { font-size: 2rem; margin-bottom: 15px; }
 .hero p { font-size: 1.2rem; }
