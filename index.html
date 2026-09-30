@@ -173,6 +173,45 @@
         }
         .project-card .info .stars { float: right; color: #f39c12; font-size: 0.85rem; }
         .project-card a { text-decoration: none; color: inherit; }
+
+
+        /* 평가 후 추가 */
+        /* 맨 위로 이동 버튼 */
+        .back-to-top {
+        position: fixed;          /* 스크롤해도 항상 같은 위치 */
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;       /* 원형 */
+        background: #667eea;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+        /* 처음엔 숨김 상태 */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+
+        z-index: 999;             /* 다른 요소 위에 표시 */
+        }
+
+        /* 나타날 때 (JS가 show 클래스 추가) */
+        .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        }
+
+        /* 마우스 올렸을 때 */
+        .back-to-top:hover {
+        background: #5568d3;
+        transform: translateY(-3px);   /* 살짝 떠오르는 효과 */
+        }
     </style>
 </head>
 <body>
@@ -425,6 +464,32 @@
 
         // 페이지 로드 시 실행
         loadRepos();
+
+        // ===== 맨 위로 이동 버튼 =====
+        const backToTop = document.getElementById('backToTop');
+
+        // (1) 스크롤 위치에 따라 버튼 보이기/숨기기
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {   // 300px 이상 내려가면
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+        });
+
+        // (2) 버튼 클릭 시 부드럽게 맨 위로
+        backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'   // 부드러운 스크롤
+        });
+        });
     </script>
+
+    <!-- 평가 후 추가 -->
+    <!-- 맨 위로 이동 버튼 -->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로 이동">
+    ↑
+    </button>
 </body>
 </html>
