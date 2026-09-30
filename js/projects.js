@@ -1,10 +1,12 @@
 import { STATE } from './state.js';
 
-const GITHUB_USER = 'fwb056';
-const statusArea = document.getElementById('statusArea');
-const projectsGrid = document.getElementById('projectsGrid');
+const GITHUB_USER = 'fwb056'; // 본인 GitHub 아이디
 
 export async function loadRepos() {
+    const statusArea = document.getElementById('statusArea');
+    const projectsGrid = document.getElementById('projectsGrid');
+    if (!statusArea || !projectsGrid) return;
+
     STATE.isLoading = true;
     statusArea.innerHTML = '<div class="spinner"></div>';
     projectsGrid.innerHTML = '';
@@ -13,9 +15,12 @@ export async function loadRepos() {
         const url = `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=6`;
         const response = await fetch(url);
 
-        if (!response.ok) throw new Error(`요청 실패 (${response.status})`);
+        if (!response.ok) {
+            throw new Error(`요청 실패 (상태 코드: ${response.status})`);
+        }
 
-        STATE.repos = await response.json();
+        const data = await response.json();
+        STATE.repos = data;
         STATE.isLoading = false;
 
         if (STATE.repos.length === 0) {
@@ -29,7 +34,9 @@ export async function loadRepos() {
                 <a href="${repo.html_url}" target="_blank">
                     <div class="thumb"></div>
                     <div class="info">
-                        <h3>${repo.name} <span class="stars">⭐ ${repo.stargazers_count}</span></h3>
+                        <h3>${repo.name}
+                            <span class="stars">⭐ ${repo.stargazers_count}</span>
+                        </h3>
                         <p>${repo.description || '설명이 없습니다.'}</p>
                         <span class="lang">${repo.language || 'Unknown'}</span>
                     </div>
@@ -40,6 +47,10 @@ export async function loadRepos() {
     } catch (error) {
         STATE.isLoading = false;
         STATE.error = error.message;
-        statusArea.innerHTML = `<p class="status-msg error">⚠️ 저장소를 불러오지 못했습니다.<br>${error.message}</p>`;
+        statusArea.innerHTML = `
+            <p class="status-msg error">
+                ⚠️ 저장소를 불러오지 못했습니다.<br>${error.message}
+            </p>`;
+        console.error(error);
     }
 }
