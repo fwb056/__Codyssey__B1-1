@@ -140,19 +140,19 @@ threshold: 0.2 (20% 보이면 실행)
 
 ### 로컬 개발 환경
 
-#### 1️⃣ 저장소 클론
+#### 저장소 클론
 ```bash
 git clone https://github.com/fwb056/__Codyssey__B1-1.git
 cd __Codyssey__B1-1
 ```
 
-#### 2️⃣ VS Code + Live Server로 실행
+#### VS Code + Live Server로 실행
 - VS Code 설치
 - **Live Server** 확장 프로그램 설치
 - `index.html` 우클릭 → "Open with Live Server" 클릭
 - 자동으로 브라우저에서 `http://localhost:5500` 열림
 
-#### 3️⃣ 수동으로 브라우저에서 열기
+#### 수동으로 브라우저에서 열기
 - `index.html`을 더블클릭하거나 브라우저에 드래그 드롭
 
 ### GitHub Pages 배포 ✅
@@ -343,26 +343,6 @@ export const STATE = {
 };
 ```
 
----
-
-## ⚠️ GitHub API 주의사항
-
-### Rate Limit (속도 제한)
-- **인증 없이**: 시간당 **60회** 제한
-- **인증 with token**: 시간당 **5,000회** 제한
-
-### 에러 처리
-```javascript
-// 403 Forbidden (Rate Limit 초과) 시 자동으로 에러 메시지 표시
-if (response.status === 403) {
-    throw new Error('GitHub API 요청 횟수 초과. 잠시 후 다시 시도하세요.');
-}
-```
-
-### 최적화 팁
-- ✅ 짧은 시간에 반복 새로고침 피하기
-- ✅ 캐싱 구현 (선택사항)
-- ✅ GitHub Personal Access Token 사용 (선택사항)
 
 ---
 
@@ -416,31 +396,6 @@ if (response.status === 403) {
 - 다크 모드에서도 명확히 표시
 ```
 
----
-
-## 🐛 트러블슈팅
-
-### 문제: 애니메이션이 작동하지 않음
-**해결**:
-- 브라우저 개발자 도구에서 "Slow down animations" 체크 해제
-- JavaScript 콘솔에 에러 메시지 확인
-
-### 문제: 다크 모드가 새로고침 후 초기화됨
-**해결**:
-- `localStorage`가 정상 작동하는지 확인
-- 브라우저 개발자 도구 → **Application** → **Local Storage** 확인
-
-### 문제: GitHub API 에러 (403)
-**해결**:
-- 시간당 60회 제한에 도달했을 가능성
-- 1시간 대기 후 다시 시도
-- Personal Access Token 사용 고려
-
-### 문제: 폼이 제출되지 않음
-**해결**:
-- 브라우저 콘솔 확인
-- `novalidate` 속성으로 기본 HTML 검증 비활성화됨
-- 콘솔에서 검증 로직 확인
 
 ---
 
@@ -457,62 +412,6 @@ if (response.status === 403) {
 - [fetch & async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 - [Flexbox vs Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 
----
-
-## 📸 스크린샷
-
-### 💻 데스크톱 보기
-- 풀 너비 레이아웃
-- 수평 네비게이션
-- 4열 그리드 (Projects)
-- 다크 모드 토글 버튼 우측 상단
-
-### 📱 모바일 보기
-- 모바일 우선 설계
-- 햄버거 메뉴 활성화
-- 세로 정렬 (About, Skills)
-- 2열 그리드 (Projects)
-- 부드러운 스크롤
-
-### 🌙 다크 모드
-- 배경: 진한 회색 (#1a1a1a)
-- 텍스트: 밝은 회색 (#eeeeee)
-- 카드: 어두운 배경 (#2a2a2a)
-- 부드러운 전환 효과 (0.3초)
-
----
-
-## 🎓 학습 성과
-
-이 프로젝트를 완성하면, 다음을 **스스로 설명할 수 있습니다**:
-
-✅ **HTML 구조 설계**: 왜 `<div>`만 쓰지 않고 시맨틱 태그를 사용했는가?  
-✅ **CSS 레이아웃**: Flexbox(네비게이션)와 Grid(프로젝트)를 어떻게 구분해서 사용했는가?  
-✅ **JavaScript 이벤트**: `querySelector` → `addEventListener` → 상태 변경 → DOM 업데이트의 흐름  
-✅ **ES6+ 문법**: 화살표 함수, 구조분해, 템플릿 리터럴의 실제 활용 사례  
-✅ **비동기 처리**: `fetch` + `async/await`로 API에서 데이터를 받아 UI에 반영하는 방법  
-✅ **상태 관리**: 한 번의 사용자 입력이 전체 화면을 어떻게 변경하는가? (React의 기초)
-
----
-
-## 📝 라이센스
-
-MIT License - 자유롭게 사용, 수정, 배포 가능
-
----
-
-## 👨‍💻 개발자
-
-**임대현** - 코디세이 AI 올인원 과정 2기
-
----
-
-## 🙏 감사의 말
-
-이 프로젝트는 웹 개발의 기초를 확실히 다지기 위한 학습 과정의 결과물입니다.  
-순수 HTML/CSS/JavaScript만으로 실무에서 필요한 모든 기능을 구현했습니다.
-
-🚀 **다음 단계**: React를 배워 이 프로젝트를 더 효율적으로 재작성할 준비가 되었습니다!
 
 ---
 
