@@ -1,12 +1,15 @@
 import { STATE } from './state.js';
 
-const GITHUB_USER = 'fwb056'; // 본인 GitHub 아이디
+// GitHub 사용자 저장소 목록을 불러와 화면에 렌더링합니다.
+// 로딩 상태, 빈 결과 상태, 오류 상태를 각각 분리해서 표시합니다.
+const GITHUB_USER = 'fwb056';
 
 export async function loadRepos() {
     const statusArea = document.getElementById('statusArea');
     const projectsGrid = document.getElementById('projectsGrid');
     if (!statusArea || !projectsGrid) return;
 
+    // API 호출 전에 로딩 상태를 표시합니다.
     STATE.isLoading = true;
     statusArea.innerHTML = '<div class="spinner"></div>';
     projectsGrid.innerHTML = '';
@@ -23,15 +26,17 @@ export async function loadRepos() {
         STATE.repos = data;
         STATE.isLoading = false;
 
+        // 저장소가 하나도 없을 때의 빈 상태를 처리합니다.
         if (STATE.repos.length === 0) {
             statusArea.innerHTML = '<p class="status-msg">📭 표시할 저장소가 없습니다.</p>';
             return;
         }
 
+        // 정상 데이터가 오면 카드 UI를 생성해 렌더링합니다.
         statusArea.innerHTML = '';
         projectsGrid.innerHTML = STATE.repos.map(repo => `
             <div class="project-card">
-                <a href="${repo.html_url}" target="_blank">
+                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
                     <div class="thumb"></div>
                     <div class="info">
                         <h3>${repo.name}
@@ -45,6 +50,7 @@ export async function loadRepos() {
         `).join('');
 
     } catch (error) {
+        // 네트워크 오류나 API 실패가 발생하면 에러 상태를 표시합니다.
         STATE.isLoading = false;
         STATE.error = error.message;
         statusArea.innerHTML = `
